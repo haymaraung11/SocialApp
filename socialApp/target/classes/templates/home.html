@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <!-- Add your CSS styling or link to external stylesheets here -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&family=Oswald&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="login-container">
+	<h1 class="appName">Social App</h1>
+    <h2 class="title">Login to Your Account</h2>
+    
+    <!-- Display any error messages if login fails -->
+    <div th:if="${param.error}" class="error-message">
+        Invalid username or password. Please try again.
+    </div>
+
+    <form th:action="@{/login}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p>Don't have an account? <a href="/signup">Sign up here</a></p>
+</div>
+
+</body>
+</html>
